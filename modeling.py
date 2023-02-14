@@ -11,7 +11,7 @@ from statsmodels.tsa.api import Holt, ExponentialSmoothing
 np.random.seed(99)
 from sklearn.metrics import mean_squared_error
 from math import sqrt 
-
+from sklearn.model_selection import train_test_split
 import modeling 
 
 def evaluate(target_var, val, yhat_df):
@@ -66,4 +66,32 @@ def final_plot(target_var, train, val, test, yhat_df):
     plt.legend()
     plt.title(target_var)
     plt.show()
+    
+    
+def train_val_test(df):
+    '''
+    this function splits up the data into sections for training,
+    validating, and testing
+    models
+    '''
+    seed = 99
+    train, val_test = train_test_split(df, train_size = 0.7,
+                                       random_state = seed)
+    
+    val, test = train_test_split(val_test, train_size = 0.5, random_state = seed)
+    
+    return train, val, test
+
+def split_time(df):
+    train_size = int(round(df.shape[0] * 0.5))
+    validate_size = int(round(df.shape[0] * 0.3))
+    test_size = int(round(df.shape[0] * 0.2))
+    
+    validate_end_index = train_size + validate_size
+    
+    train = df[:train_size]
+    validate = df[train_size:validate_end_index]
+    test = df[validate_end_index:]
+    
+    return train, validate, test
     
