@@ -58,3 +58,18 @@
   * Holts Seasonal Trend (best selected)
   
 # Data Dictionary
+
+| Feature | Explanaiton |
+|--------|-------------|
+| Latitude | The latitude (decimal degrees) at the start of the haul. |
+| Longitude | The longitude (decimal degrees) at the start of the haul| 
+| Year | Year specimen was collected |
+| Name | The common name of the marine organism associated with the scientific name| 
+| Sex | Gender of crab |
+| Bottom Depth | Meters (m). Weighted average depth (m) and is calculated by adding gear depth to net height| 
+| CPUE | Catch Per Unit of Effort |
+
+
+Surface Temperature: Surface temperature, in tenths of a degree, Celsius.
+Bottom Temperature: Average temperature (in tenths of a degree Celsius) measured at the maximum depth of the trawl.
+Haul: This number uniquely identifies a haul within a cruise. It is a sequential number, in chronological order of occurrence.
